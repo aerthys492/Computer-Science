@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Converter": {
+      "commandName": "Project",
+      "commandLineArgs": "I:\\c#\\csvtohtmlconverter\\Converter\\tabela.csv I:\\c#\\csvtohtmlconverter\\Converter\\result.html"
+    }
+  }
+}

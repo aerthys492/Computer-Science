@@ -1,0 +1,16 @@
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\Converter.exe
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\Converter.deps.json
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\Converter.runtimeconfig.json
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\Converter.runtimeconfig.dev.json
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\Converter.dll
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\ref\Converter.dll
+I:\c#\csvtohtmlconverter\Converter\bin\Debug\net5.0\Converter.pdb
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.GeneratedMSBuildEditorConfig.editorconfig
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.AssemblyInfoInputs.cache
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.AssemblyInfo.cs
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.csproj.CoreCompileInputs.cache
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.dll
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\ref\Converter.dll
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.pdb
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.genruntimeconfig.cache
+I:\c#\csvtohtmlconverter\Converter\obj\Debug\net5.0\Converter.csproj.AssemblyReference.cache
