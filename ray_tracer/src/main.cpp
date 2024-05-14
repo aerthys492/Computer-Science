@@ -9,9 +9,9 @@ extern void draw_triangles();
 
 ///
 int main (int argc, char * const argv[]) {
-    
-//    draw_triangles();
-//    return 0;
+
+    // draw_triangles();
+    // return 0;
     
     std::cout << "ray tracing ... \n";
 
@@ -25,12 +25,12 @@ int main (int argc, char * const argv[]) {
     CRayTrace rt;
     CRay ray;
     COutput results;
-    
+
     /// computes primary ray matrix
-    // glm::mat3 ray_matrix;
-    // CRayTrace::compPrimaryRayMatrix(scene.cam, ray_matrix);
-    // std::cout << "Camera projection matrix:" << std::endl;
-    // PRINT_MAT3(ray_matrix);
+    glm::mat3 ray_matrix;
+    CRayTrace::compPrimaryRayMatrix(scene.cam, ray_matrix);
+    std::cout << "Camera projection matrix:" << std::endl;
+    PRINT_MAT3(ray_matrix);
 
     /// computes ray direction for sample pixel positions
     // ...

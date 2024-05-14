@@ -14,9 +14,30 @@
 /// \param m Output projection matrix.
 ///
 bool CRayTrace::compPrimaryRayMatrix(const CCamera& cam, glm::mat3& m) {
+    glm::mat3 PRM=m;
+    glm::vec3 eyep = cam.eyep;
+    glm::vec3 lookp = cam.lookp;
+    glm::vec3 up = cam.up;
+    float fov = cam.fov;
+    int width = cam.width;
+    int height = cam.height;
+
+    glm::vec3 look = lookp - eyep;
+    glm::vec3 u = glm::cross(up, look) / glm::length(glm::cross(up, look));
+    glm::vec3 v = glm::cross(u, look) / glm::length(glm::cross(u, look));
+    float radian = (fov/2) * 3.14f / 180.0f;
+    glm::vec3 o = (look / glm::length(look)) * (float)(width / 2) * tan(radian) - (width / 2.0f * u + height / 2.0f * v);
+
+    glm::vec3 normal1 = glm::normalize(glm::cross(u, v));
+    glm::vec3 normal2 = glm::normalize(glm::cross(v, o));
+    glm::vec3 normal3 = glm::normalize(glm::cross(o, u));
+    PRM[0] = normal1;
+    PRM[1] = normal2;
+    PRM[2] = normal3;
 
     return true;
 }
+
 
 
 /// \fn rayTrace(CScene scene, CRay& ray, COutput& out)

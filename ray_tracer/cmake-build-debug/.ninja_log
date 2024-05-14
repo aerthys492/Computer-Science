@@ -1,0 +1,23 @@
+# ninja log v5
+12	3029	7374122079203648	CMakeFiles/rt.dir/src/CRay.cpp.obj	53731b9f5114f274
+16	3074	7374122079644119	CMakeFiles/rt.dir/src/CRayTrace.cpp.obj	dcfcfec132c91fac
+8	3076	7374122079654910	CMakeFiles/rt.dir/src/CObject.cpp.obj	f5f56cfe34665717
+21	3079	7374122079695168	CMakeFiles/rt.dir/src/CScene.cpp.obj	323d8b020a9c189f
+26	3145	7374122080363816	CMakeFiles/rt.dir/src/main.cpp.obj	22adb77ec789a993
+3	3159	7374122080500970	CMakeFiles/rt.dir/src/CImage.cpp.obj	a531d3940262f79e
+3159	3363	7374122082518726	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
+20	2663	7374136372814237	CMakeFiles/rt.dir/src/CScene.cpp.obj	323d8b020a9c189f
+25	2688	7374136373062271	CMakeFiles/rt.dir/src/main.cpp.obj	22adb77ec789a993
+13	2276	7374138060116718	CMakeFiles/rt.dir/src/CRayTrace.cpp.obj	dcfcfec132c91fac
+2276	2394	7374138061268510	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
+14	2729	7374141084195098	CMakeFiles/rt.dir/src/main.cpp.obj	22adb77ec789a993
+2730	2841	7374141085293721	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
+15	2485	7374147307680329	CMakeFiles/rt.dir/src/CRayTrace.cpp.obj	dcfcfec132c91fac
+2486	2599	7374147308784821	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
+16	2806	7374181166886945	CMakeFiles/rt.dir/src/CRayTrace.cpp.obj	dcfcfec132c91fac
+6	2316	7374182965749341	CMakeFiles/rt.dir/src/main.cpp.obj	22adb77ec789a993
+2317	2445	7374182966993382	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
+14	2735	7374187513817330	CMakeFiles/rt.dir/src/main.cpp.obj	22adb77ec789a993
+2735	2848	7374187514917142	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
+13	2493	7374191144120867	CMakeFiles/rt.dir/src/CScene.cpp.obj	323d8b020a9c189f
+2493	2610	7374191145244910	C:/Users/Kamil/Documents/GitHub/Computer-Science/ray_tracer/bin/rt.exe	482eb3785e40865d
