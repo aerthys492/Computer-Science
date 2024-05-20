@@ -46,7 +46,7 @@ int main (int argc, char * const argv[]) {
 
 
     /// creates raster image object
-    // CImage image(scene.cam.width, scene.cam.height);
+     CImage image(scene.cam.width, scene.cam.height);
 
     /// main loop
 
