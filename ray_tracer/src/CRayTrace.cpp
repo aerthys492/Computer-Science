@@ -14,7 +14,6 @@
 /// \param m Output projection matrix.
 ///
 bool CRayTrace::compPrimaryRayMatrix(const CCamera& cam, glm::mat3& m) {
-    glm::mat3 PRM=m;
     glm::vec3 eyep = cam.eyep;
     glm::vec3 lookp = cam.lookp;
     glm::vec3 up = cam.up;
@@ -28,11 +27,9 @@ bool CRayTrace::compPrimaryRayMatrix(const CCamera& cam, glm::mat3& m) {
     glm::vec3 v = glm::cross(u, look) / glm::length(glm::cross(u, look));
     glm::vec3 o = (look / glm::length(look)) * (width /( 2.0f * tan(radian))) - ((width / 2.0f) * u + (height / 2.0f) * v);
 
-    PRM[0] = u;
-    PRM[1] = v;
-    PRM[2] = o;
-    std::cout << "test"<< std::endl;
-    PRINT_MAT3(PRM);
+    m[0] = u;
+    m[1] = v;
+    m[2] = o;
 
     return true;
 }
