@@ -18,7 +18,6 @@ void CScene::create() {
     objectList.clear(); // clears vector of pointers to objects
     
     // add camera, light sources, and objects
-    CCamera cam;
     cam.eyep = glm::vec3 (0.0,0.0,10.0);
     cam.lookp = glm::vec3 (0.0,0.0,0.0);
     cam.up = glm::vec3 (0.0,1.0,0.0);

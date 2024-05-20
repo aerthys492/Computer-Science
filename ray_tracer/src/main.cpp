@@ -34,6 +34,15 @@ int main (int argc, char * const argv[]) {
 
     /// computes ray direction for sample pixel positions
     // ...
+    // no i tu mi zle wyniki wychodzą w tym ray.dir
+    ray.pos = scene.cam.eyep;
+    glm::vec3 pixelPosition = glm::vec3 (0.5,0.5,1.0);
+
+    ray.dir = glm::normalize((ray_matrix * pixelPosition));
+
+    for(int i =0; i<3; i++){
+        std::cout << "ray" << ray.dir[i]<< " ";
+    }
 
 
     /// creates raster image object

@@ -21,12 +21,12 @@ bool CRayTrace::compPrimaryRayMatrix(const CCamera& cam, glm::mat3& m) {
     float fov = cam.fov;
     int width = cam.width;
     int height = cam.height;
-    float radian = fov * (3.14f / 180.0f);
+    float radian = fov/2.0f * (3.141592f / 180.0f);
 
     glm::vec3 look = lookp - eyep;
     glm::vec3 u = glm::cross(up, look) / glm::length(glm::cross(up, look));
     glm::vec3 v = glm::cross(u, look) / glm::length(glm::cross(u, look));
-    glm::vec3 o = (look / glm::length(look)) * (width / 2.0f * tan(radian)) - ((width / 2.0f) * u + (height / 2.0f) * v);
+    glm::vec3 o = (look / glm::length(look)) * (width /( 2.0f * tan(radian))) - ((width / 2.0f) * u + (height / 2.0f) * v);
 
     PRM[0] = u;
     PRM[1] = v;
