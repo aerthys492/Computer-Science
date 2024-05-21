@@ -25,6 +25,17 @@ void CScene::create() {
     cam.width = 500;
     cam.height = 400;
 
+    //create objects
+    CSphere * sphere1 = new CSphere({-2.5,1.3,-3},1.0);
+    CSphere * sphere2 = new CSphere({0,0,0},1.6);
+    //testowy obiekt
+    //CSphere * sphere3 = new CSphere({0,0,0},5.0);
+
+    //add objects to list
+    objectList.push_back(sphere1);
+    objectList.push_back(sphere2);
+    //objectList.push_back(sphere3);
+
 
 }
 

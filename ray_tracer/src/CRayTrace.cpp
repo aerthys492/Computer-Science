@@ -20,7 +20,7 @@ bool CRayTrace::compPrimaryRayMatrix(const CCamera& cam, glm::mat3& m) {
     float fov = cam.fov;
     int width = cam.width;
     int height = cam.height;
-    float radian = fov/2.0f * (3.141592f / 180.0f);
+    float radian = fov/2.0f * (3.14f / 180.0f);
 
     glm::vec3 look = lookp - eyep;
     glm::vec3 u = glm::cross(up, look) / glm::length(glm::cross(up, look));
@@ -46,6 +46,26 @@ bool CRayTrace::rayTrace(const CScene& scene, CRay& ray, COutput& out) {
 
     /// looks for the closest object along the ray path
     /// returns false if there are no intersection
+    CObject* hit_obj;
+    float t_min = FLT_MAX;
+    const float EPS = 0.0001f;
+    bool is_intersection = false;
+
+    // for each object in CScene::objectList
+    for (auto &obj : scene.objectList) {
+        float t = obj->intersect(ray);
+        if (t > EPS && t < t_min) {
+            t_min = t;
+            hit_obj = obj;
+            is_intersection = true;
+        }
+    }
+    if(is_intersection == true){
+        ;out.col = {0,0.6,0};
+    }else{
+        out.col = {0,0,0};
+        return false;
+    }
 
     /// computes 3D position of the intersection point
 

@@ -33,54 +33,122 @@ int main (int argc, char * const argv[]) {
     PRINT_MAT3(ray_matrix);
 
     /// computes ray direction for sample pixel positions
-    // ...
-    // no i tu mi zle wyniki wychodzą w tym ray.dir
     ray.pos = scene.cam.eyep;
-    glm::vec3 pixelPosition = glm::vec3 (0.5,0.5,1.0);
+    float fx = scene.cam.width/2 - 1 + 0.5;
+    float fy = scene.cam.height/2 - 1 + 0.5;
 
-    ray.dir = glm::normalize((ray_matrix * pixelPosition));
+    ray.dir = glm::normalize((ray_matrix * glm::vec3 {fx,fy,1}));
 
-    for(int i =0; i<3; i++){
-        std::cout << "ray" << ray.dir[i]<< " ";
-    }
+    PRINT_VEC3("", glm::round(ray.dir));
 
+    /////////test przecięcia promienia z kulą////////
+    //ray.dir = {0.3,0.3,-1};
+    //ray.pos ={0,0,10};
+    //std::cout<< scene.objectList[2]->intersect(ray);
+    /////////test////////
 
     /// creates raster image object
-     CImage image(scene.cam.width, scene.cam.height);
+    CImage image(scene.cam.width, scene.cam.height);
+    CImage image2(scene.cam.width, scene.cam.height);
+    CImage image3(scene.cam.width, scene.cam.height);
 
     /// main loop
-
+    for (int j = 0; j < scene.cam.height; j++) {
+        for (int i = 0; i < scene.cam.width; i++){
             /// position of the image point
-            /// ...
+            float fx = (float)i +0.5f;
+            float fy = (float)j +0.5f;
+            ray.pos = scene.cam.eyep;
 
             /// primary ray
-            /// ...
+            ray.dir = glm::normalize(ray_matrix * glm::vec3 {fx,fy,1});
+
+            //glm::vec3 rgb(0.0f, 0.0f, 0.0f);
+            //rgb.x = (ray.dir.x + 1.0f)/2.0f;
+            //rgb.y = (ray.dir.y + 1.0f)/2.0f;
+            //rgb.z = (ray.dir.z + 1.0f)/2.0f;
+            //image.setPixel(i, j, rgb);
 
             /// background color
-            // results.col = {0,0,0};
+            results.col = {0,0,0};
             /// secondary ray counter
-            // results.tree = 0;
+            results.tree = 0;
             /// ray energy
-            // results.energy = 1.0f;
-            
+            results.energy = 1.0f;
+
             /// rendering
-            /// rt.rayTrace(scene, ray, results);
+            rt.rayTrace(scene, ray, results);
 
             /// handles pixel over-saturation
-            // if(results.col.x > 1 || results.col.y > 1 || results.col.z > 1) {
-            //    results.col = {1,1,1};
-            //}
+            if(results.col.x > 1 || results.col.y > 1 || results.col.z > 1) {
+                results.col = {1,1,1};
+            }
 
             /// writes pixel to output image
-            // image.setPixel(i, j, results.rgb);
+            image.setPixel(i, j, results.col);
 
+            //glm::vec3 rgb(0.0f, 0.0f, 0.0f);
+            //rgb.x = (ray.dir.x + 1.0f)/2.0f;
+            //rgb.y = (ray.dir.y + 1.0f)/2.0f;
+            //rgb.z = (ray.dir.z + 1.0f)/2.0f;
+            //image.setPixel(i, j, rgb);
+            glm::vec3 rgbX(0.0f, 0.0f, 0.0f);
+            rgbX.x = (ray.dir.x + 1.0f) / 2.0f;
+            glm::vec3 rgbY(0.0f, 0.0f, 0.0f);
+            rgbY.y = (ray.dir.y + 1.0f) / 2.0f;
+            glm::vec3 rgbZ(0.0f, 0.0f, 0.0f);
+            rgbZ.z = (ray.dir.z + 1.0f) / 2.0f;
+        }
+    }
+    /*for (int j = 0; j < scene.cam.height; j++) {
+        for (int i = 0; i < scene.cam.width; i++) {
+            /// position of the image point
+            float fx = (float)i +0.5f;
+            float fy = (float)j +0.5f;
+            ray.pos = scene.cam.eyep;
+
+            /// primary ray
+            ray.dir = glm::normalize(ray_matrix * glm::vec3 {fx,fy,1});
+
+            //glm::vec3 rgb(0.0f, 0.0f, 0.0f);
+            //rgb.x = (ray.dir.x + 1.0f)/2.0f;
+            //rgb.y = (ray.dir.y + 1.0f)/2.0f;
+            //rgb.z = (ray.dir.z + 1.0f)/2.0f;
+            image.setPixel(i, j, rgb);
+            /// background color
+            results.col = {0,0,0};
+            /// secondary ray counter
+            results.tree = 0;
+            /// ray energy
+            results.energy = 1.0f;
+
+            /// rendering
+            rt.rayTrace(scene, ray, results);
+
+            /// handles pixel over-saturation
+            if(results.col.x > 1 || results.col.y > 1 || results.col.z > 1) {
+                results.col = {1,1,1};
+            }
+
+            /// writes pixel to output image
+            image.setPixel(i, j, results.col);
+        }
+    }*/
 
     /// writes image to disk file with gamma correction
-    // image.save("output.png", true);
+    //image.save("image.png", true);
+    //image2.save("image2.png", true);
+    //image3.save("image3.png", true);
 
-    // cv::imshow("image", image.getImage());
-    // cv::waitKey();
-    
+     //cv::imshow("image", image.getImage());
+     //cv::waitKey();
+    //cv::imshow("image", image.getImage());
+    //cv::imshow("image2", image2.getImage());
+    //cv::imshow("image3", image3.getImage());
+    //cv::waitKey();
+
+    /// writes image to disk file with gamma correction
+    image.save("output.png", false);
     std::cout << std::endl << std::endl;
     return 0;
 }

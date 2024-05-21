@@ -16,7 +16,26 @@
 ///
 float CSphere::intersect(const CRay& ray) {
     float t = -1;
+    glm::vec3 v = ray.pos - pos;
 
+    float A = glm::dot(ray.dir, ray.dir);
+
+    float B = 2 * glm::dot(v, ray.dir);
+
+    float C = glm::dot(v,v) - pow(r,2);
+
+    float delta = pow(B, 2) - 4 * A * C;
+
+    if(delta>0){
+        float t1 = (-B + sqrt(delta)) / (2 * A);
+        float t2 = (-B - sqrt(delta)) / (2 * A);
+        if(t1 > 0 && t1 < t2){
+            t = t1;
+        }else  t = t2;
+    }else if(delta == 0){
+        t = -B / (2 * A);
+
+    }
 
     return t;
 }
